@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FirstScreenActivity"
-    android:background="@color/seed"
+    android:background="@color/md_theme_dark_onBackground"
     android:orientation="vertical">
 
     <!--weight extends the size of the TextView so more text can fit inside-->
@@ -26,31 +26,27 @@
         android:textColor="@color/md_theme_light_primary" />
 
     <ImageView
-        android:id="@+id/image"
+        android:id="@+id/moneyspread"
+        android:src="@drawable/moneyspread"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:layout_gravity="bottom"
         android:layout_marginBottom="10dp"
-        android:gravity="center_horizontal"
-        android:fontFamily="@font/lexend"
-        android:text="Sign In"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:textColor="@color/md_theme_light_primary" />
+        android:gravity="center_horizontal" />
 
     <Button
         android:id="@+id/signIn"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.3"
+        android:layout_weight="0.2"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="15dp"
         android:gravity="center_horizontal"
         android:fontFamily="@font/lexend"
         android:text="Sign In"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textColor="@color/md_theme_light_primary"
         android:background="@drawable/button_border" />
 
@@ -58,14 +54,14 @@
         android:id="@+id/createAcc"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.3"
+        android:layout_weight="0.2"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="80dp"
         android:gravity="center_horizontal"
         android:fontFamily="@font/lexend"
         android:text="Create Your Account"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textColor="@color/md_theme_light_primary"
         android:background="@drawable/button_border" />
 
