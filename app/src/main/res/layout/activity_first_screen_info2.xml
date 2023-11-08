@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".FirstScreenActivity"
+    android:background="@color/md_theme_light_primaryContainer"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--weight extends the size of the TextView so more text can fit inside-->
+    <!--marginTop creates space above TextView-->
+    <!--center_horizontal aligns the text to the middle-->
+    <TextView
+        android:id="@+id/introTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:layout_gravity="top"
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
+        android:fontFamily="@font/lexend"
+        android:text="Watch YOUR Spendings Update in REAL TIME"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/md_theme_light_primary" />
+
+    <ImageView
+        android:id="@+id/moneyspread"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        android:layout_weight="100"
+        android:gravity="center_horizontal"
+        android:src="@drawable/moneyspread"
+        android:layout_marginBottom="90dp"
+        android:layout_marginTop="0dp"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
