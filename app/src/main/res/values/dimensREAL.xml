@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name = "twoSlidesPicMarginBottom">119dp</dimen>
+    <dimen name = "lastItemPicMarginBottom">20dp</dimen>
+    <dimen name = "picsMarginHorizontal">10dp</dimen>
+</resources>
