@@ -28,14 +28,12 @@
             android:name=".Authentication.SignInCreateAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".FirstThreeSlides.Onboarding_activity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".FirstThreeSlides.IntroActivity"
+            android:exported="false" />
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
     </application>
-
 </manifest>
