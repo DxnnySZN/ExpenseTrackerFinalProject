@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.expensetrackerproject.R;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IntroActivity extends AppCompatActivity {
-    private ViewPager screenPager;
+    private ViewPager2 screenPager;
     IntroViewPagerAdapter introViewPagerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState){
