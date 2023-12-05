@@ -1,6 +1,8 @@
 package com.example.expensetrackerproject.FirstThreeSlides;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -14,8 +16,11 @@ import java.util.List;
 
 public class IntroActivity extends AppCompatActivity {
     private ViewPager2 screenPager;
-    IntroViewPagerAdapter introViewPagerAdapter;
-    TabLayout tabIndicator;
+    private IntroViewPagerAdapter introViewPagerAdapter;
+    private TabLayout tabIndicator;
+    private Button nextBttn;
+    private Button getStarted;
+    private int position = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -23,6 +28,8 @@ public class IntroActivity extends AppCompatActivity {
 
         // initialize
         tabIndicator = findViewById(R.id.tabLayout);
+        nextBttn = findViewById(R.id.nextButton);
+        getStarted = findViewById(R.id.getStarted);
 
         // allows info1pic1 ImageView to change with each slide
         int resourceID1 = getResources().getIdentifier("dudewithbread", "drawable", getPackageName());
@@ -66,5 +73,25 @@ public class IntroActivity extends AppCompatActivity {
                 // handle tab reselection if needed
             }
         });
+
+        // next button click listener
+        nextBttn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                position = screenPager.getCurrentItem();
+                if(position < mList.size()){
+                    position++;
+                    screenPager.setCurrentItem(position);
+                }
+                if(position == mList.size()){ // when user reaches the last screen, it will hide the indicator & "Next" button and show the "Get Started" button
+                    showButton();
+                }
+            }
+        });
+
+        // shows "Get Started" and hides indicator & "Next"
+        private void showButton(){
+            //
+        }
     }
 }
