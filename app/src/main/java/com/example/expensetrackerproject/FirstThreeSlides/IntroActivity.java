@@ -62,7 +62,7 @@ public class IntroActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 // handle tab selection
                 int position = tab.getPosition();
-                screenPager.setCurrentItem(position, true); // Move to the selected screen
+                screenPager.setCurrentItem(position, true); // move to the selected screen
             }
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
