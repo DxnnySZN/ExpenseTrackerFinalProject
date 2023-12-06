@@ -88,10 +88,10 @@ public class IntroActivity extends AppCompatActivity {
                 }
             }
         });
-
-        // shows "Get Started" and hides indicator & "Next"
-        private void showButton(){
-            //
-        }
+//
+//        // shows "Get Started" and hides indicator & "Next"
+//        private void showButton(){
+//            //
+//        }
     }
 }

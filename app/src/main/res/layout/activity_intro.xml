@@ -33,8 +33,8 @@
         android:drawableRight="@drawable/baseline_start_24"
         android:drawableTint="@color/md_theme_light_primaryContainer"
         android:text="Get Started"
-        app:backgroundTint="@color/md_theme_dark_inversePrimary"
-        app:cornerRadius="8dp"
+        app:backgroundTint="@values/bttn_gradient_style"
+        app:cornerRadius="12dp"
         app:iconTint="@color/md_theme_light_secondaryContainer"
         app:layout_constraintBottom_toBottomOf="@+id/ViewPagerScreen"
         app:layout_constraintEnd_toEndOf="@+id/ViewPagerScreen"
@@ -51,8 +51,8 @@
         android:drawableRight="@drawable/baseline_arrow_forward_24"
         android:drawableTint="@color/md_theme_light_primaryContainer"
         android:text="Next"
-        android:background="@drawable/bttn_gradient_style"
-        app:cornerRadius="8dp"
+        app:backgroundTint="@values/bttn_gradient_style"
+        app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
