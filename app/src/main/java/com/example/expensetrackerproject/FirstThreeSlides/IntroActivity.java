@@ -2,6 +2,8 @@ package com.example.expensetrackerproject.FirstThreeSlides;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +23,7 @@ public class IntroActivity extends AppCompatActivity {
     private Button nextBttn;
     private Button getStarted;
     private int position = 0;
+    private Animation bttnAnimation;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -30,6 +33,7 @@ public class IntroActivity extends AppCompatActivity {
         tabIndicator = findViewById(R.id.tabLayout);
         nextBttn = findViewById(R.id.nextButton);
         getStarted = findViewById(R.id.getStarted);
+        bttnAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.button_animation);
 
         // allows info1pic1 ImageView to change with each slide
         int resourceID1 = getResources().getIdentifier("dudewithbread", "drawable", getPackageName());
@@ -83,15 +87,37 @@ public class IntroActivity extends AppCompatActivity {
                     position++;
                     screenPager.setCurrentItem(position);
                 }
-                if(position == mList.size()){ // when user reaches the last screen, it will hide the indicator & "Next" button and show the "Get Started" button
+                if(position == mList.size() - 1){ // when user reaches the last screen, it will hide the indicator & "Next" button and show the "Get Started" button
                     showButton();
                 }
             }
         });
-//
-//        // shows "Get Started" and hides indicator & "Next"
-//        private void showButton(){
-//            //
-//        }
+        // if user chooses to scroll instead of pressing the "Next" button, "Get Started" will still appear
+        tabIndicator.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if(tab.getPosition() == mList.size() - 1){
+                    showButton();
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+    // shows "Get Started" and hides indicator & "Next"
+    private void showButton() {
+        nextBttn.setVisibility(View.INVISIBLE);
+        getStarted.setVisibility(View.VISIBLE);
+        tabIndicator.setVisibility(View.INVISIBLE);
+        // animation for "Get Started"
+        getStarted.setAnimation(bttnAnimation);
     }
 }
