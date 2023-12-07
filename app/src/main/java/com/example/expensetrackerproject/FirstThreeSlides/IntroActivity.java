@@ -1,5 +1,7 @@
 package com.example.expensetrackerproject.FirstThreeSlides;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -10,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.expensetrackerproject.Authentication.SignInCreateAccountActivity;
 import com.example.expensetrackerproject.R;
 import com.google.android.material.tabs.TabLayout;
 
@@ -28,6 +31,13 @@ public class IntroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
+
+        // when activity is about to be launched, restorePrefData() checks if activity has been opened before
+        if(restorePrefData()){
+            Intent nextActivity = new Intent(getApplicationContext(), SignInCreateAccountActivity.class);
+            startActivity(nextActivity);
+            finish();
+        }
 
         // initialize
         tabIndicator = findViewById(R.id.tabLayout);
@@ -111,7 +121,33 @@ public class IntroActivity extends AppCompatActivity {
 
             }
         });
+        getStarted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // go to SignInCreateAccountActivity
+                Intent nextActivity = new Intent(getApplicationContext(), SignInCreateAccountActivity.class);
+                startActivity(nextActivity);
+                // save boolean value to storage so next time the user runs the app
+                // the app can understand the user has already viewed the IntroActivity
+                savePrefsData();
+                finish();
+            }
+        });
     }
+    private boolean restorePrefData() {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
+        Boolean isIntroOpened = pref.getBoolean("isIntroOpened", false);
+        return isIntroOpened;
+    }
+
+    // code to check if user viewed the IntroActivity
+    private void savePrefsData() {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putBoolean("isIntroOpened", true);
+        editor.commit();
+    }
+
     // shows "Get Started" and hides indicator & "Next"
     private void showButton() {
         nextBttn.setVisibility(View.INVISIBLE);
